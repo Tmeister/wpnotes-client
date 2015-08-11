@@ -1,0 +1,40 @@
+.login{
+    background-color: #2d3a4b;
+    color: white;
+    a{
+        color: $md-clr-grey-200;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .site-name{
+        font-size: 26px;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .welcome-message{
+        text-align: center;
+    }
+    .float-box{
+        width: 90%;
+        max-width: 300px;
+    }
+    .help-text{
+        margin: 10px 0;
+    }
+    .help-block{
+        font-size: 14px;
+        color: $md-clr-red;
+        margin: 0 0 15px 0;
+    }
+    md-input-container.md-light-theme,
+    md-input-container.md-light-theme.md-input-has-value{
+        label{
+            color: $md-clr-blue-grey-50;
+        }
+        .md-input{
+            color: $md-clr-blue-grey-50;
+            border-color: $md-clr-blue-grey-50;
+        }
+    }
+}

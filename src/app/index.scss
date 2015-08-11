@@ -1,0 +1,51 @@
+/**
+ *  Do not remove this comments bellow. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+// bower:scss
+// endbower
+
+@import "bower_components/material-color/material-color-prefixed";
+
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+*{
+    outline: none;
+}
+
+html {
+}
+
+body{
+    color: $md-clr-grey-600;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    background: #fff;
+    position: relative;
+    font-weight:300;
+}
+.holder{
+    //min-height: 100%;
+    height: 100%;
+}
+md-toolbar{
+    background-color: $md-clr-grey-50;
+    padding: 0 10px;
+    min-height: 65px;
+    color: $md-clr-grey-600;
+    border-bottom: 1px solid $md-clr-grey-200;
+}
+
+/**
+ *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+// injector
+// endinjector

@@ -1,0 +1,42 @@
+.ta-root{
+    position: relative;
+    .ta-editor{
+    }
+    &.focussed .ta-scroll-window.form-control{
+        border-color: 0 !important;
+        box-shadow: 0 0 0 !important;
+    }
+}
+.ta-toolbar{
+    clear: both;
+    display: inline-block;
+    background-color: $md-clr-grey-50;
+    border-bottom: 1px solid $md-clr-grey-100;
+    border-top: 1px solid $md-clr-grey-100;
+    width: 100%;
+    padding: 10px;
+    z-index: 9;
+    .btn-group{
+        float: left;
+        button{
+            background-color: $md-clr-grey-50;
+            border: 1px solid $md-clr-grey-200;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+    }
+}
+.subhead{
+    .top{
+        padding: 20px;
+    }
+    .title{
+        margin: 0;
+    }
+    .actions{
+        md-icon{
+            font-size: 20px;
+            color: $md-clr-grey-400 !important;
+        }
+    }
+}
