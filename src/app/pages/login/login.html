@@ -1,14 +1,14 @@
-<section class="login" layout-fill layout-align="center center"  layout="row" md-theme="light">
+<section class="login" ng-show="login.isNotLogged" layout-fill layout-align="center center"  layout="row">
     <div class="float-box" flex>
         <form class="form" name="form" ng-submit="login.login(form)" novalidate>
             <div class="header">
-                <div class="brand-logo" layout="row" layout-fill layout-align="center center">
-                    <div class="logo"></div>
-                    <div class="site-name">WP Notes</div>
+                <div class="brand-logo" layout="column" layout-fill layout-align="center center">
+                    <div class="logo">
+                        <img src="assets/images/login-circle@2x.png" alt="WPNotes">
+                    </div>
                 </div>
             </div>
             <div class="content">
-                <p class="welcome-message"><strong>Welcome,</strong> Please login</p>
                 <md-input-container>
                     <label>Email</label>
                     <input ng-model="login.user.login" required type="text" name="login">
@@ -18,14 +18,15 @@
                     <input ng-model="login.user.password" required type="password" name="password">
                 </md-input-container>
                 <div class="form-group has-error">
+                    <md-progress-linear md-mode="indeterminate" ng-if="login.isLoading"></md-progress-linear>
                     <p class="help-block" ng-show="form.login.$error.required && form.password.$error.required && login.submitted">Please enter your email and password.</p>
                     <p class="help-block">{{ login.errors.other }}</p>
                 </div>
-                <div class="help-text"><a href="/signup">No account yet? create one</a></div>
             </div>
-            <div class="md-actions" layout="row" layout-align="end center">
-                <md-button class="md-primary md-raised" type="submit">Login</md-button>
+            <div class="md-actions" layout="row" layout-align="start center">
+                <md-button flex class="md-primary md-raised" type="submit" ng-disabled="login.isLoading">Login</md-button>
             </div>
+            <div class="help-text">Don’t have an account? <a href="/signup">Sign up</a></div>
         </form>
     </div>
 </section>

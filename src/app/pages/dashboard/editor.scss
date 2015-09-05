@@ -23,6 +23,10 @@
             border: 1px solid $md-clr-grey-200;
             padding: 5px 10px;
             font-size: 14px;
+            &.active{
+                background: $accentColor;
+                color: white;
+            }
         }
     }
 }
@@ -32,11 +36,17 @@
     }
     .title{
         margin: 0;
+        md-input-container{
+            padding-bottom: 0;
+            input{
+                font-size: 30px;
+                font-weight: 300;
+            }
+        }
     }
     .actions{
         md-icon{
             font-size: 20px;
-            color: $md-clr-grey-400 !important;
         }
     }
 }

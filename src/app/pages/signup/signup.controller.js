@@ -3,15 +3,15 @@
 
     angular
         .module( 'wpnotes' )
-        .controller( 'LoginController', LoginController );
+        .controller( 'SignupController', SignupController );
 
     /** @ngInject */
-    function LoginController( $log, Auth, $location ) {
+    function SignupController( $log, Auth, $location ) {
         var vm = this;
-        vm.login = login;
         vm.user = {};
         vm.errors = {};
         vm.isLoading = false;
+        vm.create = create;
 
         Auth.isLoggedInAsync( function( loggedIn ) {
             if ( loggedIn ) {
@@ -21,14 +21,34 @@
             }
         } );
 
-        function login( form ) {
+        function create( form ) {
             vm.submitted = true;
             if ( !form.$valid ) {
                 return;
             }
             vm.errors = {};
             vm.isLoading = true;
-            Auth.login( vm.user )
+            console.log( vm.user );
+            Auth.register( vm.user )
+                .then( function( data ) {
+                    console.log( data );
+                    if ( data.status == 'success' ) {
+                        //register ok
+                        doLogin();
+                    }
+
+                } )
+                .catch( function( err ) {
+                    vm.isLoading = false;
+                    vm.errors.other = err.message;
+                } );
+        }
+
+        function doLogin() {
+            Auth.login( {
+                    login: vm.user.email,
+                    password: vm.user.password
+                } )
                 .then( function() {
                     vm.isLoading = false;
                     $location.path( '/dashboard' );

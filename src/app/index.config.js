@@ -11,13 +11,32 @@
         $logProvider.debugEnabled( true );
         $locationProvider.html5Mode( true );
         $httpProvider.interceptors.push( 'authInterceptor' );
+
+        $mdThemingProvider.definePalette( 'water-green', {
+            '50': 'edfaf9',
+            '100': 'dcf6f3',
+            '200': 'b9ede7',
+            '300': '96e4da',
+            '400': '73dbce',
+            '500': '50d2c2',
+            '600': '4bc7b8',
+            '700': '42c5b5',
+            '800': '3cbbab',
+            '900': '36ae9f',
+            'A100': 'b9ede7',
+            'A200': '96e4da',
+            'A400': '4bc7b8',
+            'A700': '42c5b5',
+            'contrastDefaultColor': 'light',
+        } );
+
         $mdThemingProvider.theme( 'default' )
-            .primaryPalette( 'blue' )
+            .primaryPalette( 'water-green' )
             .accentPalette( 'red' );
 
-        /*$mdThemingProvider.theme( 'light' )
-            .primaryPalette( 'light-blue' )
-            .accentPalette( 'blue' );*/
+        $mdThemingProvider.theme( 'light' )
+            .primaryPalette( 'water-green' )
+            .accentPalette( 'pink' );
 
     }
 

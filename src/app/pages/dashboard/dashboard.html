@@ -1,15 +1,12 @@
-<section layout="row" flex layout-fill style="height:100%;">
+<section ng-show="dash.isLogged" layout="row" flex layout-fill style="height:100%;">
     <md-sidenav class="sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
         <md-toolbar class="md-theme-indigo">
             <h1 class="md-toolbar-tools">WPNOTES</h1>
         </md-toolbar>
         <md-content layout-fill flex class="sidenav">
             <div class="note" ng-repeat="note in dash.notes" layout="column" ng-click="dash.setNoteView($index)">
-                <div class="title">{{$index+1}} - {{note.title.rendered}}</div>
+                <div class="title">{{note.title.rendered}}</div>
                 <div class="date"><span am-time-ago="note.date"></span></div>
-                <div class="excerpt">
-                    {{note.excerpt.rendered | htmlToPlainText}}
-                </div>
             </div>
         </md-content>
     </md-sidenav>
@@ -18,10 +15,15 @@
         <ng-include class="headerbar" src="'app/components/headerbar/headerbar.html'" ng-controller="HeaderController as header"></ng-include>
         <div class="subhead" ng-if="dash.editorVisible">
             <div class="top" layout="row" layout-align="space-between center">
-                <h1 class="title">{{dash.currentNote.title.rendered}}</h1>
-                <div class="actions" layout="row">
-                    <md-button class="md-icon-button" title="Delete note" aria-label="Google.com">
-                        <md-icon md-font-library="material-icons">delete</md-icon>
+                <!-- <h1 class="title">{{dash.currentNote.title.rendered}}</h1> -->
+                <div class="title" flex>
+                    <md-input-container>
+                        <input ng-model="dash.currentNote.title.rendered">
+                    </md-input-container>
+                </div>
+                <div class="actions">
+                    <md-button class="md-icon-button md-accent" title="Delete Note" aria-label="Delete Note">
+                        <md-icon><i class="fa fa-trash"></i></md-icon>
                     </md-button>
                 </div>
             </div>

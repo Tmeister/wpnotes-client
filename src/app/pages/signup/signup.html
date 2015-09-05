@@ -1,0 +1,36 @@
+<section class="signup" ng-show="signup.isNotLogged" layout-fill layout-align="center center"  layout="row">
+    <div class="float-box" flex>
+        <form class="form" name="form" ng-submit="signup.create(form)" novalidate>
+            <div class="header">
+                <div class="brand-logo" layout="column" layout-fill layout-align="center center">
+                    <div class="logo">
+                        <img src="assets/images/signup-circle@2x.png" alt="WPNotes">
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <md-input-container>
+                    <label>Name</label>
+                    <input ng-model="signup.user.name" required type="text" name="signup">
+                </md-input-container>
+                <md-input-container>
+                    <label>Email</label>
+                    <input ng-model="signup.user.email" required type="email" name="signup">
+                </md-input-container>
+                <md-input-container>
+                    <label>Password</label>
+                    <input ng-model="signup.user.password" required type="password" name="password">
+                </md-input-container>
+                <div class="form-group has-error">
+                    <md-progress-linear md-mode="indeterminate" ng-if="signup.isLoading"></md-progress-linear>
+                    <p class="help-block" ng-show="form.signup.$error.required && form.password.$error.required && signup.submitted">Please enter all the fields.</p>
+                    <p class="help-block">{{ signup.errors.other }}</p>
+                </div>
+            </div>
+            <div class="md-actions" layout="row" layout-align="start center">
+                <md-button flex class="md-primary md-raised" type="submit" ng-disabled="signup.isLoading">Create</md-button>
+            </div>
+            <div class="help-text">Already have an account? <a href="/login">Sign In</a></div>
+        </form>
+    </div>
+</section>

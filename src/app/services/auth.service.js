@@ -13,11 +13,11 @@
 
         if ( $cookieStore.get( 'token' ) ) {
             currentUser = User.get();
-            console.log( currentUser );
         }
 
         service.login = login;
         service.logout = logout;
+        service.register = register;
         service.getCurrentUser = getCurrentUser;
         service.isLoggedIn = isLoggedIn;
         service.isLoggedInAsync = isLoggedInAsync;
@@ -33,13 +33,12 @@
                 } )
                 .success( function( data ) {
                     $cookieStore.put( 'token', data.token );
-                    $log.log( 'Put Cookie' );
                     currentUser = User.get();
                     deferred.resolve( data );
                     return cb();
                 } )
                 .error( function( err ) {
-                    logout();
+                    logout( false );
                     deferred.reject( err[ 0 ] );
                     return cb( err );
                 }.bind( this ) );
@@ -47,10 +46,28 @@
             return deferred.promise;
         }
 
-        function logout() {
+        function register( user, callback ) {
+            var cb = callback || angular.noop;
+            var deferred = $q.defer();
+            $http.post( API_URL + 'wpnotes/v1/register', user )
+                .success( function( data ) {
+                    deferred.resolve( data );
+                    return cb();
+                } )
+                .error( function( err ) {
+                    deferred.reject( err[ 0 ] );
+                    return cb( err );
+                }.bind( this ) );
+
+            return deferred.promise;
+        }
+
+        function logout( redirect ) {
             $cookieStore.remove( 'token' );
             currentUser = {};
-            $location.path( '/' );
+            if ( redirect ) {
+                $location.path( '/' );
+            }
         }
 
         function getCurrentUser() {

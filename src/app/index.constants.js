@@ -4,5 +4,5 @@
 
     angular
         .module( 'wpnotes' )
-        .constant( 'API_URL', 'http://jwt.dev/wp-json/' )
+        .constant( 'API_URL', 'http://wpnotes.dev/wp-json/' )
 } )();

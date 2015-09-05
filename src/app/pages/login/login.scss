@@ -1,10 +1,17 @@
 .login{
-    background-color: #2d3a4b;
-    color: white;
+    background-color: white;
     a{
-        color: $md-clr-grey-200;
+        color: $siteTextColor;
         text-decoration: none;
-        font-size: 14px;
+    }
+    .logo{
+        width: 100px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        img{
+            max-width: 100%;
+            height: auto;
+        }
     }
     .site-name{
         font-size: 26px;
@@ -17,24 +24,34 @@
     }
     .float-box{
         width: 90%;
-        max-width: 300px;
+        max-width: 320px;
     }
     .help-text{
-        margin: 10px 0;
+        margin: 30px 0;
+        font-size: 12px;
+        text-transform: uppercase;
+        text-align: center;
     }
     .help-block{
-        font-size: 14px;
+        font-size: 12px;
         color: $md-clr-red;
         margin: 0 0 15px 0;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 500;
     }
-    md-input-container.md-light-theme,
-    md-input-container.md-light-theme.md-input-has-value{
+    md-progress-linear{
+        margin-bottom: 30px;
+    }
+    md-input-container.md-default-theme,
+    md-input-container.md-default-theme.md-input-has-value,
+    md-input-container.md-default-theme.md-input-focused{
         label{
-            color: $md-clr-blue-grey-50;
+            color: $siteTextColor;
         }
         .md-input{
-            color: $md-clr-blue-grey-50;
-            border-color: $md-clr-blue-grey-50;
+            color: $siteTextColor;
+            border-color: $borderColor;
         }
     }
 }

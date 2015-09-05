@@ -1,37 +1,45 @@
 md-sidenav{
+    md-toolbar{
+        background: $accentColor;
+        color: white;
+        border-bottom: 0;
+    }
     &.md-locked-open{
-        width: 408px;
-        min-width: 408px;
+        width: 308px;
+        min-width: 308px;
     }
 }
 .sidenav-left{
     .sidenav{
         border-right: 1px solid $md-clr-grey-200;
         .note{
+            @include transition(background-color .25s);
             padding: 20px;
             border-bottom: 1px solid $md-clr-grey-200;
             font-weight: 400;
             cursor: pointer;
-            @include transition(all .25s);
             .title{
-                font-weight: 400;
+                font-weight:300;
+                font-size: 14px;
+                color: #1D1D26;
+                @include transition(color .25s);
             }
             .date{
-                font-size: 13px;
+                font-size: 10px;
                 text-transform: uppercase;
-                margin: 5px 0 10px 0;
+                margin: 5px 0 0 0;
                 font-weight: 100;
-            }
-            .excerpt{
-                font-size: 14px;
-                font-weight: 300;
-                line-height: 1.3rem;
+                @include transition(color .25s);
             }
             &:hover,
             &.active{
-                background-color: $md-clr-light-blue-400;
-                color: white;
-                @include transition(all .25s);
+                @include transition(background-color .25s);
+                background-color: $accentColor;
+                .title,
+                .date{
+                    color:white;
+                    @include transition(color .25s);
+                }
             }
         }
     }

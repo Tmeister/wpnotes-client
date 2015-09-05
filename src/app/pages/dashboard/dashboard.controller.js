@@ -10,8 +10,8 @@
         var vm = this;
         vm.notes = {};
         vm.currentNote = {};
-        vm.editorVisible = false;
         vm.editor = {};
+        vm.editorVisible = false;
         vm.logout = Auth.logout;
         vm.setNoteView = setNoteView;
 
@@ -24,12 +24,16 @@
             [ 'insertImage', 'insertLink' ]
         ];
 
-        function loadNotes() {
-            console.log( Auth.getCurrentUser().id )
-            vm.notes = Notes.query( {
-                author: Auth.getCurrentUser().id
-            } );
-            $log.log( vm.notes );
+        function loadNotes( loggedIn ) {
+            if ( loggedIn ) {
+                vm.notes = Notes.query( {
+                    'filter[author]': Auth.getCurrentUser().id
+                } );
+                $log.log( vm.notes );
+                vm.isLogged = true;
+            } else {
+                vm.isLogged = false;
+            }
         }
 
         function setNoteView( index ) {
