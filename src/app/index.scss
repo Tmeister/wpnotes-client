@@ -11,12 +11,10 @@ $siteTextColor: rgba(29, 29, 38, 1);
 $borderColor: rgba(29, 29, 38, .1);
 $accentColor: #50d2c2;
 $bgGrayColor: #f6f6f8;
+$darkColor: #3E414A;
 
 *{
     outline: none;
-}
-
-html {
 }
 
 body{
@@ -37,13 +35,6 @@ md-content{
 .holder{
     //min-height: 100%;
     height: 100%;
-}
-md-toolbar{
-    background-color: $md-clr-grey-50;
-    padding: 0 10px;
-    min-height: 65px;
-    color: $md-clr-grey-600;
-    border-bottom: 1px solid $md-clr-grey-200;
 }
 
 .md-icon-button{

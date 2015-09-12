@@ -1,45 +1,60 @@
-md-sidenav{
-    md-toolbar{
-        background: $accentColor;
-        color: white;
-        border-bottom: 0;
-    }
+.sidenav-left{
+    background-color: $accentColor;
     &.md-locked-open{
         width: 308px;
         min-width: 308px;
     }
-}
-.sidenav-left{
     .sidenav{
-        border-right: 1px solid $md-clr-grey-200;
+        background-color: $accentColor;
+        padding: 20px 10px;
+        color: white;
+        h4{
+            text-transform: uppercase;
+        }
+        .new-note{
+            h4{
+                border-left: 2px solid white;
+                padding-left: 15px;
+            }
+            i{
+                color: white;
+            }
+        }
+        .latest-notes{
+            h4{
+                margin: 0 0 15px 0;
+            }
+        }
         .note{
-            @include transition(background-color .25s);
-            padding: 20px;
-            border-bottom: 1px solid $md-clr-grey-200;
-            font-weight: 400;
+            padding: 5px 0;
             cursor: pointer;
             .title{
-                font-weight:300;
-                font-size: 14px;
-                color: #1D1D26;
-                @include transition(color .25s);
-            }
-            .date{
-                font-size: 10px;
-                text-transform: uppercase;
-                margin: 5px 0 0 0;
-                font-weight: 100;
-                @include transition(color .25s);
+                font-weight:500;
+                color: white;
+                font-size: 15px;
+                opacity: .75;
+                @include transition(opacity .25s);
             }
             &:hover,
             &.active{
-                @include transition(background-color .25s);
-                background-color: $accentColor;
-                .title,
-                .date{
-                    color:white;
-                    @include transition(color .25s);
+                .title{
+                    opacity: 1;
+                    @include transition(opacity .25s);
                 }
+            }
+        }
+    }
+    .search{
+        padding: 20px 10px;
+        md-input-container.md-default-theme,
+        md-input-container.md-default-theme.md-input-has-value,
+        md-input-container.md-default-theme.md-input-focused{
+            label{
+                color: white;
+            }
+            .md-input{
+                color: white;
+                border-color: white;
             }
         }
     }

@@ -1,24 +1,34 @@
 <section ng-show="dash.isLogged" layout="row" flex layout-fill style="height:100%;">
     <md-sidenav class="sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-        <md-toolbar class="md-theme-indigo">
-            <h1 class="md-toolbar-tools">WPNOTES</h1>
-        </md-toolbar>
         <md-content layout-fill flex class="sidenav">
-            <div class="note" ng-repeat="note in dash.notes" layout="column" ng-click="dash.setNoteView($index)">
-                <div class="title">{{note.title.rendered}}</div>
-                <div class="date"><span am-time-ago="note.date"></span></div>
+            <div class="new-note" layout="row" layout-align="space-between center">
+                <h4>Write New</h4>
+                <md-button class="md-icon-button" aria-label="Menu">
+                    <md-icon><i class="fa fa-bars"></i></md-icon>
+                </md-button>
+            </div>
+            <div class="latest-notes">
+                <h4>Latest</h4>
+                <div class="note" ng-repeat="note in dash.notes" layout="column" ng-click="dash.setNoteView($index)">
+                    <div class="title">{{note.title.rendered}}</div>
+                </div>
             </div>
         </md-content>
+        <div class="search">
+            <md-input-container>
+                <label>Search</label>
+                <input ng-model="search" required type="text" name="search">
+            </md-input-container>
+        </div>
+
     </md-sidenav>
 
-    <div layout="column" tabIndex="-1" role="main" flex>
-        <ng-include class="headerbar" src="'app/components/headerbar/headerbar.html'" ng-controller="HeaderController as header"></ng-include>
+    <div layout="column" role="main" flex>
         <div class="subhead" ng-if="dash.editorVisible">
             <div class="top" layout="row" layout-align="space-between center">
-                <!-- <h1 class="title">{{dash.currentNote.title.rendered}}</h1> -->
                 <div class="title" flex>
                     <md-input-container>
-                        <input ng-model="dash.currentNote.title.rendered">
+                        <input ng-model="dash.currentNote.title.rendered" aria-label="title">
                     </md-input-container>
                 </div>
                 <div class="actions">
